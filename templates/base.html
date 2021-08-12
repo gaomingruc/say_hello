@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- flash信息 -->
+        {% for message in get_flashed_messages() %}
+        <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            {{ message }}
+        </div>
+        {% endfor %}
+        <!-- 网站标题 -->
+        <div class="h1 text-center">
+            <span class="title-red">你好</span><span class="h3">世界</span>
+        </div>
+        <!-- 信息发布表单 -->
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <form method="post" action="">
+                    {{ form.csrf_token }}
+                    <!-- 姓名 -->
+                    <div class="form-group">
+                        {{ form.name.label }}
+                        {{ form.name(class='form-control') }}
+                        {% for error in form.name.errors %}
+                        <span class="error-message">
+                            {{ error }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                    <!-- 想说的话 -->
+                    <div class="form-group">
+                        {{ form.message.label }}
+                        {{ form.message(class='form-control') }}
+                        {% for error in form.message.errors %}
+                        <span class="error-message">
+                            {{ error }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                    <!-- 天王盖地虎 -->
+                    <div class="form-group">
+                        {{ form.check_info.label }}
+                        {{ form.check_info(class='form-control') }}
+                        {% for error in form.check_info.errors %}
+                        <span class="error-message">
+                            {{ error }}
+                        </span>
+                        {% endfor %}
+                    </div>
+                    {{ form.submit(class='btn btn-primary') }}
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <script src="{{ url_for('static', filename='js/jquery-3.6.0.js') }}"></script>
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+</body>
+
+</html>

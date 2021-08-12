@@ -1,0 +1,14 @@
+/* 设置网站背景颜色 */
+body {
+    background-color: #F5F5F5;
+}
+
+/* 网站标题设置 */
+.title-red {
+    color: red;
+}
+
+/* 表单错误信息 */
+.error-message {
+    color: red;
+}

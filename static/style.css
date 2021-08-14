@@ -12,3 +12,8 @@ body {
 .error-message {
     color: red;
 }
+
+/* 留言信息展示列表下姓名字体 */
+#note-list li .name {
+    color: #28a745;
+}
